@@ -14,7 +14,7 @@ class PredictPipeline:
     def predict(self,features):
         try:
             ## We write in this format instead of 'artifacts/filename.extension because this will run both on linux and windows
-            preprocessor_path=os.join('artifacts','preprocessor.pkl')
+            preprocessor_path=os.path.join('artifacts','preprocessor.pkl')
             model_path=os.path.join('artifacts','model.pkl')
 
             preprocessor=load_object(preprocessor_path)
@@ -51,6 +51,7 @@ class CustomData:
         self.color = color
         self.clarity = clarity
 
+    ## Whenever we get any data we need to convert it into dataframes
     def get_data_as_dataframe(self):
         try:
             custom_data_input_dict = {
